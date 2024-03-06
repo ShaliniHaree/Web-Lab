@@ -1,0 +1,31 @@
+
+body {
+    background-image: url("");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    background-color:#FFD1DC;
+    padding: 50px;
+    box-shadow: 0 0 10px rgba(14, 6, 6, 0.1);
+}
+
+label {
+    text-align: left;
+    font-family: cursive;
+    display: block;
+    margin-bottom: 10px;
+}
+button[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+}
