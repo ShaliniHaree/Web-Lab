@@ -1,0 +1,94 @@
+*{
+    font-family: 'poppins',sna serif;
+
+}
+body{
+    background-image: url("BRAINBUSTER (1).jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+
+}
+.container{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 0 15px;
+
+}
+span{
+    color: rgb(7, 8, 8);
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;  
+
+}
+header{
+    color: rgb(59, 59, 53);
+    font-size: 30px ;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+.input-field{
+    display: flex;
+    flex-direction: column;
+    
+}
+.input{
+    height: 45px;
+    width: 87%;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    color: rgb(7, 10, 10);
+    padding: 0 0 0 45px;
+    background: rgba(255,255,255,0.1);
+}
+i{
+    position: relative;
+    top: -31px;
+    left:17px;
+    color: rgb(49, 31, 68);
+} 
+::-webkit-input-placeholder{
+    color:rgb(67, 129, 184);
+}
+.submit{
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    height: 45px;
+    outline: none;
+    width:100%;
+    background:rgba(95, 221, 127, 0.7) ;
+    cursor:pointer;
+    transition: 0.3s;
+}
+.submit:hover{
+    box-shadow:1px 5px 7px 1px rgba(0,0,0,0.2)
+}
+.bottom{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: small;
+    color:rgb(219, 106, 144);
+    margin-top: 10px;
+}
+.left{
+    display:flex;
+}
+label a{
+    color:rgb(27, 19, 29);
+    text-decoration: none;
+
+}

@@ -1,0 +1,121 @@
+/* Style for the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333; /* Background color for the navigation bar */
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2; /* Text color for non-hover state */
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: #ddd; /* Background color on hover */
+  color: black;
+}
+
+/* Dropdown styles */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 14px; /* Adjusted font size */
+  border: none;
+  outline: none;
+  color: #f2f2f2; /* Text color for the dropdown button */
+  padding: 14px 16px; /* Adjusted padding */
+  background-color: inherit;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #4CAF50; /* Green background color on hover */
+  color: white; /* Text color on hover */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9; /* Background color for the dropdown content */
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd; /* Background color on hover */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Additional styles for footer, social icons, header, and body */
+footer {
+  background-color: #a08c79;
+  color: rgb(17, 16, 13);
+  padding: 20px 50px;
+  text-align: center;
+}
+
+/* Styles for header and body */
+header {
+  background-color: #a08c79;
+  color: rgb(17, 16, 13);
+  padding: 10px 50px;
+  text-align: center;
+  font-family: cursive;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: small;
+  background-color: rgb(180, 175, 176);
+  background-image: url("xxx.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.topnav input[type=text] {
+  float: right;
+  padding: 15px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: none;
+  font-size: 14px;
+}
+
+.search-container {
+  float: right;
+  margin-top: 8px;
+}
+
+/* Style for the search bar */
+.search-bar {
+  padding: 15px;
+  border: none;
+  font-size: 14px;
+}
+
+/* Style for the search icon */
+.search-icon {
+  background-color: #333;
+  color: #f2f2f2;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+}
