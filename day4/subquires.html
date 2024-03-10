@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesq1.css">
+  <title>Multiple Choice Quiz</title>
+ 
+</head>
+<body>
+    <a href="squiz.html">
+        <button type="button" class="btn btn-info">Back</button>
+        </a>
+    <h1> SQL Subqueries</h1>
+    <div class="quiz-container">
+        <div class="question" id="question1">
+            <h2>Question 1</h2>
+            <p>What is a subquery in SQL?
+              </p>
+            <ul>
+                <li><input type="radio" name="q1" value="false">A query that returns multiple columns</li>
+                <li><input type="radio" name="q1" value="true"> A query that is nested inside another query</li>
+                <li><input type="radio" name="q1" value="false">  A query that updates multiple rows</li>
+                <li><input type="radio" name="q1" value="false">A query that joins multiple tables</li>
+            </ul>
+            <button class="next-btn">Next </button>
+        </div>
+        <div class="question" id="question2">
+            <h2>Question 2</h2>
+            <p>Which operator is used to compare a value to a list of values returned by a subquery?
+            </p>
+            <ul>
+                <li><input type="radio" name="q2" value="true"> IN</li>
+                <li><input type="radio" name="q2" value="false"> EXISTS</li>
+                <li><input type="radio" name="q2" value="false">LIKE</li>
+                <li><input type="radio" name="q2" value="false">  BETWEEN</li>
+            </ul>
+            <button class="next-btn">Next </button>
+        </div>
+        <div class="question" id="question3">
+          <h2>Question 3</h2>
+          <p>What does the EXISTS operator do in SQL?
+            </p>
+          <ul>
+              <li><input type="radio" name="q3" value="true">Checks if a subquery returns any rows</li>
+              <li><input type="radio" name="q3" value="false">Compares two columns for equality</li>
+              <li><input type="radio" name="q3" value="false"> Checks if a value exists in a table</li>
+              <li><input type="radio" name="q3" value="false"> Checks if a column contains NULL values</li>
+          </ul>
+          <button class="next-btn">Next </button>
+      </div>
+        <div class="question" id="question4">
+            <h2>Question 4</h2>
+            <p> Which keyword is used to alias a subquery in SQL?
+              </p>
+            <ul>
+                <li><input type="radio" name="q4" value="true">AS</li>
+                <li><input type="radio" name="q4" value="false">WITH</li>
+                <li><input type="radio" name="q4" value="false"> SUB</li>
+                <li><input type="radio" name="q4" value="false"> ALIAS</li>
+            </ul>
+            <button class="submit-btn">Submit</button>
+        </div>
+        <div class="result" style="display: none;">
+            <!-- Result content will be displayed here -->
+        </div>
+    </div>
+    
+    
+    <div class="result" id="result"></div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const questions = document.querySelectorAll(".question");
+    const nextBtns = document.querySelectorAll(".next-btn");
+    const submitBtn = document.querySelector(".submit-btn");
+    const resultSection = document.querySelector(".result");
+
+    let currentQuestionIndex = 0;
+
+    // Function to show next question or result
+    function showNext() {
+        questions[currentQuestionIndex].style.display = "none";
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < questions.length - 1) {
+            questions[currentQuestionIndex].style.display = "block";
+        } else if (currentQuestionIndex === questions.length - 1) {
+            submitBtn.style.display = "block";
+        } else {
+            showResult();
+        }
+    }
+
+    // Function to calculate and display result
+    function showResult() {
+        let correctAnswers = 0;
+        questions.forEach((question, index) => {
+            const selectedOption = question.querySelector("input[type='radio']:checked");
+            if (selectedOption && selectedOption.value === "true") {
+                correctAnswers++;
+            }
+        });
+
+        const resultText = document.createElement("p");
+        resultText.textContent = `You scored ${correctAnswers} out of ${questions.length }.`;
+        resultSection.appendChild(resultText);
+        resultSection.style.display = "block";
+    }
+
+    // Event listeners for next button clicks
+    nextBtns.forEach(nextBtn => {
+        nextBtn.addEventListener("click", showNext);
+    });
+
+    // Event listener for submit button click
+    submitBtn.addEventListener("click", showResult);
+
+    // Show the first question initially
+    questions[currentQuestionIndex].style.display = "block";
+});
+</script>

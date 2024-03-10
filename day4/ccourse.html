@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C Lecture Notes</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding: 20px;
+      background-image: url("xxx.jpg");
+      background-position: center;
+      background-size: cover;
+    }
+    .lecture-container {
+      margin-top: 20px;
+    }
+    .sidebar {
+      background-color: #987654;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+    }
+    .sidebar a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #ebedf0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 sidebar">
+        <h4>Topics</h4>
+        <a href="#introduction">Introduction</a><br>
+        <a href="#declaration">Declaration and Initialization</a><br>
+        <a href="#arithmetic">Pointer Arithmetic</a><br>
+        <a href="#arrays">Pointers and Arrays</a><br>
+        <a href="#opening">Opening and Closing Files</a><br>
+        <a href="#reading">Reading from files</a><br>
+        <a href="#writing">Writing to files</a><br>
+        <a href="#declaration">Function declaration and definition</a><br>
+        <a href="#parameter">Parameter and Return Values</a><br>
+        <a href="#recursive">Recursive Functions</a><br>
+      </div>
+
+      <div class="col-md-9">
+        <h1 class="mt-4 mb-4">Pointers</h1>
+
+        <div id="introduction" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Introduction to Pointers</h2>
+            <p>
+              Pointers in C are variables that store the memory address of another variable. They are powerful tools for handling memory and performing advanced operations.
+            </p>
+          </div>
+        </div>
+
+        <div id="declaration" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Declaration and Initialization</h2>
+            <p>
+              To declare a pointer, use the '*' symbol. Example: <code>int *ptr;</code>. Initialization can be done using the address of a variable: <code>ptr = &variable;</code>.
+            </p>
+          </div>
+        </div>
+
+        <div id="arithmetic" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Pointer Arithmetic</h2>
+            <p>
+              Pointers support arithmetic operations. Adding an integer 'n' to a pointer advances it by 'n' times the size of the variable it points to.
+            </p>
+          </div>
+        </div>
+
+        <div id="arrays" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Pointers and Arrays</h2>
+            <p>
+              Arrays in C are closely related to pointers. The name of an array is a pointer to its first element. Array indexing is equivalent to pointer arithmetic.
+            </p>
+          </div>
+        </div>
+        <h1 class="mt-4 mb-4">File Handling</h1>
+        <div id="opening" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Opening and Closing Files:</h2>
+            <p>
+              The process of file handling begins with opening a file using the fopen function. This establishes a connection between the program and the file. After performing necessary operations, it is crucial to close the file using fclose to ensure proper resource management.
+            </p>
+          </div>
+        </div>
+        <div id="reading" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Reading from files:</h2>
+            <p>
+              File handling allows the extraction of information from files through functions like fscanf and fgets. These functions enable the retrieval of data from files, facilitating data processing within the C program.
+            </p>
+          </div>
+        </div>
+        <div id="writing" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Writing to files:</h2>
+            <p>
+              Writing to files is achieved using functions such as fprintf and fputs. These functions empower C programs to store data, results, or generated content in external files, providing a persistent and shareable form of output.
+            </p>
+          </div>
+        </div>
+        <h1 class="mt-4 mb-4">Functions and Recursion</h1>
+        <div id="declaration" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Function Declaration and Definition:</h2>
+            <p>
+              Understanding how to declare and define functions is fundamental. This topic covers the syntax for declaring functions, specifying return types, parameter lists, and function bodies. It explores the modularization aspect of programming through function encapsulation.
+            </p>
+          </div>
+        </div>
+        <div id="parameter" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Parameter and Return values:</h2>
+            <p>
+              Delve into the usage of parameters in functions, including different types such as value parameters, reference parameters, and default values. Learn how functions return values and how to utilize them in your programs.
+            </p>
+          </div>
+        </div>
+        <div id="recursive" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Recursive Functions:</h2>
+            <p>
+              Explore the concept of recursion, where a function calls itself. Understand the principles of recursion, its advantages, and the base case concept to prevent infinite recursion. Recursive functions are powerful tools for solving problems that exhibit a self-repeating structure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      fetch('header.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('header').innerHTML=html);
+    </script>
+
+  <!-- Bootstrap JS and Popper.js (for Bootstrap modal and dropdown functionality) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

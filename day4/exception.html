@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesq1.css">
+  <title>Multiple Choice Quiz</title>
+ 
+</head>
+<body>
+    <a href="pquiz.html">
+        <button type="button" class="btn btn-info">Back</button>
+        </a>
+    <h1>Exception Handling </h1>
+    <div class="quiz-container">
+        <div class="question" id="question1">
+            <h2>Question 1</h2>
+            <p> What is an exception in Python?
+              </p>
+            <ul>
+                <li><input type="radio" name="q1" value="false">A logical error in the code</li>
+                <li><input type="radio" name="q1" value="false"> A syntax error in the code</li>
+                <li><input type="radio" name="q1" value="true">An unexpected event that occurs during program execution</li>
+                <li><input type="radio" name="q1" value="false"> A comment in the code</li>
+            </ul>
+            <button class="next-btn">Next </button>
+        </div>
+        <div class="question" id="question2">
+            <h2>Question 2</h2>
+            <p>How do you handle exceptions in Python?
+            </p>
+            <ul>
+                <li><input type="radio" name="q2" value="false"> Using the catch keyword</li>
+                <li><input type="radio" name="q2" value="true"> Using the try and except blocks</li>
+                <li><input type="radio" name="q2" value="false"> Using the finally block</li>
+                <li><input type="radio" name="q2" value="false">  Using the raise keyword</li>
+            </ul>
+            <button class="next-btn">Next </button>
+        </div>
+        <div class="question" id="question3">
+          <h2>Question 3</h2>
+          <p>What does the finally block in exception handling do?
+            </p>
+          <ul>
+              <li><input type="radio" name="q3" value="false"> Executes the code inside the block if an exception occurs</li>
+              <li><input type="radio" name="q3" value="true"> Executes the code inside the block regardless of whether an exception occurs</li>
+              <li><input type="radio" name="q3" value="false">  Raises an exception</li>
+              <li><input type="radio" name="q3" value="false"> Terminates the program</li>
+          </ul>
+          <button class="next-btn">Next </button>
+      </div>
+        <div class="question" id="question4">
+            <h2>Question 4</h2>
+            <p>What is the purpose of the else block in exception handling?
+              </p>
+            <ul>
+                <li><input type="radio" name="q4" value="true"> Executes the code inside the block if no exceptions occur</li>
+                <li><input type="radio" name="q4" value="false"> Executes the code inside the block if an exception occurs</li>
+                <li><input type="radio" name="q4" value="false">  Raises an exception</li>
+                <li><input type="radio" name="q4" value="false"> Terminates the program</li>
+            </ul>
+            <button class="submit-btn">Submit</button>
+        </div>
+        <div class="result" style="display: none;">
+            <!-- Result content will be displayed here -->
+        </div>
+    </div>
+    
+    
+    <div class="result" id="result"></div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const questions = document.querySelectorAll(".question");
+    const nextBtns = document.querySelectorAll(".next-btn");
+    const submitBtn = document.querySelector(".submit-btn");
+    const resultSection = document.querySelector(".result");
+
+    let currentQuestionIndex = 0;
+
+    // Function to show next question or result
+    function showNext() {
+        questions[currentQuestionIndex].style.display = "none";
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < questions.length - 1) {
+            questions[currentQuestionIndex].style.display = "block";
+        } else if (currentQuestionIndex === questions.length - 1) {
+            submitBtn.style.display = "block";
+        } else {
+            showResult();
+        }
+    }
+
+    // Function to calculate and display result
+    function showResult() {
+        let correctAnswers = 0;
+        questions.forEach((question, index) => {
+            const selectedOption = question.querySelector("input[type='radio']:checked");
+            if (selectedOption && selectedOption.value === "true") {
+                correctAnswers++;
+            }
+        });
+
+        const resultText = document.createElement("p");
+        resultText.textContent = `You scored ${correctAnswers} out of ${questions.length }.`;
+        resultSection.appendChild(resultText);
+        resultSection.style.display = "block";
+    }
+
+    // Event listeners for next button clicks
+    nextBtns.forEach(nextBtn => {
+        nextBtn.addEventListener("click", showNext);
+    });
+
+    // Event listener for submit button click
+    submitBtn.addEventListener("click", showResult);
+
+    // Show the first question initially
+    questions[currentQuestionIndex].style.display = "block";
+});
+</script>

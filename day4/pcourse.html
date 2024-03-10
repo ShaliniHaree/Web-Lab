@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Lecture Notes</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding: 20px;
+      background-image: url("xxx.jpg");
+      background-position: center;
+      background-size: cover;
+    }
+    .lecture-container {
+      margin-top: 20px;
+    }
+    .sidebar {
+      background-color: #987654;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+    }
+    .sidebar a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #ebedf0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 sidebar">
+        <h4>Topics</h4>
+        <a href="#arthmetic">Arithmetic Expressions</a><br>
+        <a href="#boolean">Boolean Expressions</a><br>
+        <a href="#string">String Expressions</a><br>
+        <a href="#list">List Comprehension</a><br>
+        <a href="#try">Try and Expect block</a><br>
+        <a href="#catching">Catching Specific Exceptions</a><br>
+      </div>
+
+      <div class="col-md-9">
+        <h1 class="mt-4 mb-4">Expressions</h1>
+
+        <div id="arithmetic" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Arithmetic Expressions:</h2>
+            <p>
+              Python supports standard arithmetic expressions, including addition (+), subtraction (-), multiplication (*), division (/), and exponentiation (**).
+              Example: result = 5 + 3 * 2 will assign the value 11 to the variable result.
+            </p>
+          </div>
+        </div>
+
+        <div id="boolean" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Boolean Expressions:</h2>
+            <p>
+              Boolean expressions in Python involve logical operations such as and, or, and not.
+Example: is_true = (x > 0) and (y < 10) will evaluate to True if both conditions are met.
+            </p>
+          </div>
+        </div>
+
+        <div id="string" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>String Expressions:</h2>
+            <p>
+              String expressions involve operations on text data. You can concatenate strings using the + operator, replicate them using *, or access individual characters using indexing. For example, "hello" + "world" or "python" * 3 are string expressions.
+            </p>
+          </div>
+        </div>
+        <div id="list" class="row lecture-container">
+          <div class="col-md-12">
+            <h1>List Comprehension:</h1><br>
+            <p>
+              List comprehension in Python is a concise and expressive way to create lists. It provides a compact syntax for generating lists in a single line, making code more readable and efficient. The basic structure consists of an expression followed by a for clause, which iterates over an iterable, and optionally, one or more if clauses to filter elements based on conditions.
+List comprehensions are known for their brevity and are often considered more Pythonic than traditional for-loops for simple list generation tasks. They are widely used for transforming, filtering, and creating lists in a clear and readable manner.<br><br>
+The syntax of a basic list comprehension is as follows:<br><br>
+<code>new_list = [expression for item in iterable if condition]</code><br><br>
+Here, expression is the value to be included in the new list, item is the variable representing each element in the iterable, and condition is an optional filtering condition.<br>
+List comprehensions contribute to more readable and maintainable code, emphasizing a functional programming style. While they are powerful, it's important to use them judiciously to maintain code clarity and avoid excessive complexity. Overall, list comprehension is a powerful feature that enhances the elegance and efficiency of Python code.
+            </p>
+          </div>
+        </div>
+        <h1 class="mt-4 mb-4">Exception</h1>
+
+        <div id="try" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Try and Expect Block</h2>
+            <p>
+              The core of exception handling in Python is the try-except block. The code within the try block is monitored for potential exceptions. If an exception occurs, the corresponding except block is executed, allowing developers to handle the error gracefully. This prevents the program from abruptly terminating and provides an opportunity to address the issue.
+            </p>
+          </div>
+        </div>
+        <div id="catching" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Catching Specific Exceptions</h2>
+            <p>
+              Python allows for catching specific exceptions, enabling developers to tailor their response to different types of errors. This specificity enhances the precision of error handling. For example, catching a FileNotFoundError separately from a TypeError allows for distinct actions to be taken based on the nature of the encountered issue.
+            </p>
+          </div>
+        </div>
+        <script>
+      fetch('header.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('header').innerHTML=html);
+    </script>
+
+  <!-- Bootstrap JS and Popper.js (for Bootstrap modal and dropdown functionality) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

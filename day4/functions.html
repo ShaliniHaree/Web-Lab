@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesq1.css">
+  <title>Multiple Choice Quiz</title>
+ 
+</head>
+<body>
+    <a href="cquiz.html">
+        <button type="button" class="btn btn-info">Back</button>
+        </a>
+    <h1>Functions and Recursion</h1>
+    <div class="quiz-container">
+        <div class="question" id="question1">
+            <h2>Question 1</h2>
+            <p>What is the output of the following C code snippet?<br><br>#include <stdio.h><br>
+
+                int foo(int n) {<br>
+                    if (n <= 0)<br>
+                        return 0;<br>
+                    else<br>
+                        return n + foo(n - 1);<br>
+                }<br>
+                <br>
+                int main() {<br>
+                    printf("%d\n", foo(4));<br>
+                    return 0;<br>
+                }<br>
+                
+              </p>
+            <ul>
+                <li><input type="radio" name="q1" value="false">10</li>
+                <li><input type="radio" name="q1" value="false">15</li>
+                <li><input type="radio" name="q1" value="true">24</li>
+                <li><input type="radio" name="q1" value="false">25</li>
+            </ul>
+            <button class="next-btn">Next </button>
+        </div>
+        <div class="question" id="question2">
+            <h2>Question 2</h2>
+            <p>What is the purpose of the following C function?<br><br>int factorial(int n) {<br>
+                if (n <= 1)<br>
+                    return 1;<br>
+                else<br>
+                    return n * factorial(n - 1);<br>
+            }<br>
+            
+            </p>
+            <ul>
+                <li><input type="radio" name="q2" value="false">To calculate the square root of a number.</li>
+                <li><input type="radio" name="q2" value="true"> To calculate the factorial of a number.</li>
+                <li><input type="radio" name="q2" value="false"> To calculate the Fibonacci sequence.</li>
+                <li><input type="radio" name="q2" value="false">  To calculate the sum of integers from 1 to n.</li>
+            </ul>
+            <button class="next-btn">Next </button>
+        </div>
+        <div class="question" id="question3">
+          <h2>Question 3</h2>
+          <p>What will be the output of the following C code?<br><br>#include <stdio.h><br>
+
+            void fun(int n) {<br>
+                if (n > 0) {<br>
+                    printf("%d ", n);<br>
+                    fun(n - 1);<br>
+                    fun(n - 1);<br>
+                }<br>
+            }<br><br>
+            
+            int main() {<br>
+                fun(3);<br>
+                return 0;<br>
+            }<br>
+            
+            </p>
+          <ul>
+              <li><input type="radio" name="q3" value="false">321</li>
+              <li><input type="radio" name="q3" value="false">312</li>
+              <li><input type="radio" name="q3" value="false"> 3112</li>
+              <li><input type="radio" name="q3" value="true"> 3211</li>
+          </ul>
+          <button class="next-btn">Next </button>
+      </div>
+        <div class="question" id="question4">
+            <h2>Question 4</h2>
+            <p>Which of the following is true regarding recursive functions in C?
+              </p>
+            <ul>
+                <li><input type="radio" name="q4" value="false"> Recursion always uses less memory than iteration.</li>
+                <li><input type="radio" name="q4" value="false">  Recursion always executes faster than iteration.</li>
+                <li><input type="radio" name="q4" value="true"> Recursion can lead to stack overflow if the depth of recursion is too large.</li>
+                <li><input type="radio" name="q4" value="false">  Recursion is only used for mathematical calculations.
+
+
+
+
+                </li>
+            </ul>
+            <button class="submit-btn">Submit</button>
+        </div>
+        <div class="result" style="display: none;">
+            <!-- Result content will be displayed here -->
+        </div>
+    </div>
+    
+    
+    <div class="result" id="result"></div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const questions = document.querySelectorAll(".question");
+    const nextBtns = document.querySelectorAll(".next-btn");
+    const submitBtn = document.querySelector(".submit-btn");
+    const resultSection = document.querySelector(".result");
+
+    let currentQuestionIndex = 0;
+
+    // Function to show next question or result
+    function showNext() {
+        questions[currentQuestionIndex].style.display = "none";
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < questions.length - 1) {
+            questions[currentQuestionIndex].style.display = "block";
+        } else if (currentQuestionIndex === questions.length - 1) {
+            submitBtn.style.display = "block";
+        } else {
+            showResult();
+        }
+    }
+
+    // Function to calculate and display result
+    function showResult() {
+        let correctAnswers = 0;
+        questions.forEach((question, index) => {
+            const selectedOption = question.querySelector("input[type='radio']:checked");
+            if (selectedOption && selectedOption.value === "true") {
+                correctAnswers++;
+            }
+        });
+
+        const resultText = document.createElement("p");
+        resultText.textContent = `You scored ${correctAnswers} out of ${questions.length }.`;
+        resultSection.appendChild(resultText);
+        resultSection.style.display = "block";
+    }
+
+    // Event listeners for next button clicks
+    nextBtns.forEach(nextBtn => {
+        nextBtn.addEventListener("click", showNext);
+    });
+
+    // Event listener for submit button click
+    submitBtn.addEventListener("click", showResult);
+
+    // Show the first question initially
+    questions[currentQuestionIndex].style.display = "block";
+});
+</script>

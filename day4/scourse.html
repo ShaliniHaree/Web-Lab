@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL Lecture Notes</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding: 20px;
+      background-image: url("xxx.jpg");
+      background-position: center;
+      background-size: cover;
+    }
+    .lecture-container {
+      margin-top: 20px;
+    }
+    .sidebar {
+      background-color: #987654;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+    }
+    .sidebar a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #ebedf0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 sidebar">
+        <h4>Topics</h4>
+        <a href="#defintion">Definition and Purpose</a><br>
+        <a href="#types">Types of Subqueries</a><br>
+        <a href="#where">Usage in WHERE Clause</a><br>
+        <a href="#sql">SQL Joins</a><br>
+        <a href="#primary">Primary Key Constraints</a><br>
+        <a href="#data">Data Integrity</a><br>
+      </div>
+
+      <div class="col-md-9">
+        <h1 class="mt-4 mb-4">Subqueries</h1>
+
+        <div id="defintion" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Definition and Purpose:</h2>
+            <p>
+                Subqueries, also known as nested queries or inner queries, are queries embedded within another SQL statement. They play a crucial role in breaking down complex problems into smaller, more manageable parts. The purpose of subqueries is to retrieve data that will be used by the main query to perform additional filtering, comparisons, or calculations.
+            </p>
+          </div>
+        </div>
+
+        <div id="types" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Types of Subqueries:</h2>
+            <p>
+                There are two main types of subqueries:
+
+                Scalar Subqueries: These subqueries return a single value and can be used in places where an expression is expected, such as in the SELECT list or a WHERE clause.<br>
+                Table Subqueries: These subqueries return a set of rows and can be used in places where a table or a set of values is expected, such as in the FROM clause or a JOIN operation.
+            </p>
+          </div>
+        </div>
+
+        <div id="where" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Usage in WHERE Clause</h2>
+            One common use of subqueries is in the WHERE clause. Subqueries in the WHERE clause allow you to filter the result set based on the results of another query. For example, you might use a subquery to find all rows where a certain condition is met in a related table.
+            </p>
+          </div>
+        </div>
+        <div id="sql" class="row lecture-container">
+          <div class="col-md-12">
+            <h1>SQL Joins</h1><br>
+            <p>
+                **1. Purpose:**<br>
+                   SQL joins are used to combine rows from two or more tables based on a related column between them. This allows you to retrieve data from multiple tables in a single query, facilitating the extraction of meaningful information by associating related records.<br>
+                
+                **2. Types of Joins:**<br>
+                   There are several types of SQL joins, including:<br>
+                   - **INNER JOIN:** Retrieves records that have matching values in both tables.<br>
+                   - **LEFT (OUTER) JOIN:** Retrieves all records from the left table and the matched records from the right table. If there is no match, NULL values are returned for columns from the right table.<br>
+                   - **RIGHT (OUTER) JOIN:** Similar to LEFT JOIN but retrieves all records from the right table and the matched records from the left table.<br>
+                   - **FULL (OUTER) JOIN:** Retrieves all records when there is a match in either the left or right table. If there is no match, NULL values are returned for columns from the table with no match.<br>
+                
+                **3. Syntax:**<br>
+                   The basic syntax for an INNER JOIN looks like this:<br>
+                   ```sql<br>
+                   SELECT column1, column2, ...<br>
+                   FROM table1<br>
+                   INNER JOIN table2 ON table1.column_name = table2.column_name;
+                   ```<br>
+            </p>
+          </div>
+        </div>
+        <h1 class="mt-4 mb-4">SQL constraints</h1>
+
+        <div id="data" class="row lecture-container">
+          <div class="col-md-12">
+            <h2>Data Integrity:</h2>
+            <p>
+                SQL constraints are essential for maintaining data integrity within a database. They enforce rules and restrictions on the data stored in tables, preventing the insertion of invalid or inconsistent values. Common constraints include NOT NULL to ensure a column cannot contain NULL values and UNIQUE to enforce uniqueness within a column or a combination of columns.
+            </p>
+          </div>
+        </div>
+        <div id="primary" class="row lecture-container">
+            <div class="col-md-12">
+              <h2>Primary Key Constraint:</h2>
+              <p>
+                The primary key constraint uniquely identifies each record in a table. It ensures that the values in the specified column (or columns) are unique and not NULL. A table can have only one primary key, and it serves as a reference for relationships between tables. Primary keys are often used as the basis for foreign key relationships.
+              </p>
+            </div>
+          </div>
+        <script>
+      fetch('header.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('header').innerHTML=html);
+    </script>
+
+  <!-- Bootstrap JS and Popper.js (for Bootstrap modal and dropdown functionality) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

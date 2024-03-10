@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesq1.css">
+  <title>Functions</title>
+ 
+</head>
+<body>
+    <a href="cquiz.html">
+        <button type="button" class="btn btn-info">Back</button>
+        </a>
+    <h1> Functions and Recursion</h1>
+    <div class="quiz-container">
+        <div class="question" id="question1">
+            <h2>Question 1</h2>
+            <p>What is the output of the following C code snippet?<br><br>#include <br>
+                int foo(int n) {<br>
+                    if (n <= 0)<br>
+                        return 0;<br>
+                    else<br>
+                        return n + foo(n - 1);<br>
+                }<br>
+                <br>
+                int main() {<br>
+                    printf("%d\n", foo(4));<br>
+                    return 0;<br>
+                }<br>
+                
+              </p>
+              <br><br>
+              Answer : 24
+              </p>
+        </div>
+        <div class="question" id="question2">
+            <h2>Question 2</h2>
+            <p>What is the purpose of the following C function?<br><br>int factorial(int n) {<br>
+                if (n <= 1)<br>
+                    return 1;<br>
+                else<br>
+                    return n * factorial(n - 1);<br>
+            }<br>
+            
+            </p><br><br>
+            Answer : To calculate the factorial of a number.
+        </div>
+        <div class="question" id="question3">
+          <h2>Question 3</h2>
+          <p>What will be the output of the following C code?<br><br>#include <stdio.h><br>
+
+            void fun(int n) {<br>
+                if (n > 0) {<br>
+                    printf("%d ", n);<br>
+                    fun(n - 1);<br>
+                    fun(n - 1);<br>
+                }<br>
+            }<br><br>
+            
+            int main() {<br>
+                fun(3);<br>
+                return 0;<br>
+            }<br><br><br>
+            Answer : 3211
+            </p>
+      </div>
+        <div class="question" id="question4">
+            <h2>Question 4</h2>
+            <p> Which of the following is true regarding recursive functions in C?<br><br>
+               Answer :Recursion can lead to stack overflow if the depth of recursion is too large.
+              </p>
+              </div>
+              </div>
+</body>
+</html>

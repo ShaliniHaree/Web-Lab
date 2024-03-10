@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesq1.css">
+  <title>Multiple Choice Quiz</title>
+ 
+</head>
+<body>
+    <a href="squiz.html">
+        <button type="button" class="btn btn-info">Back</button>
+        </a>
+    <h1> SQL Constraints</h1>
+    <div class="quiz-container">
+        <div class="question" id="question1">
+            <h2>Question 1</h2>
+            <p>What does the SQL constraint PRIMARY KEY enforce?
+              </p>
+            <ul>
+                <li><input type="radio" name="q1" value="true"> Ensures uniqueness of values in a column</li>
+                <li><input type="radio" name="q1" value="false">Allows NULL values in a column</li>
+                <li><input type="radio" name="q1" value="false"> Ensures referential integrity between tables</li>
+                <li><input type="radio" name="q1" value="false">Restricts the range of values in a column</li>
+            </ul>
+            <button class="next-btn">Next </button>
+        </div>
+        <div class="question" id="question2">
+            <h2>Question 2</h2>
+            <p>Which constraint ensures that a column cannot have NULL values?
+            </p>
+            <ul>
+                <li><input type="radio" name="q2" value="false"> PRIMARY KEY</li>
+                <li><input type="radio" name="q2" value="false">  FOREIGN KEY</li>
+                <li><input type="radio" name="q2" value="false">CHECK</li>
+                <li><input type="radio" name="q2" value="true">  NOT NULL</li>
+            </ul>
+            <button class="next-btn">Next </button>
+        </div>
+        <div class="question" id="question3">
+          <h2>Question 3</h2>
+          <p>What does the UNIQUE constraint do in SQL?
+            </p>
+          <ul>
+              <li><input type="radio" name="q3" value="true">Ensures that values in a column are unique</li>
+              <li><input type="radio" name="q3" value="false">Ensures that values in a column are not NULL</li>
+              <li><input type="radio" name="q3" value="false"> Limits the range of values in a column</li>
+              <li><input type="radio" name="q3" value="false">  Allows values in a column to be duplicated</li>
+          </ul>
+          <button class="next-btn">Next </button>
+      </div>
+        <div class="question" id="question4">
+            <h2>Question 4</h2>
+            <p> What does the SQL CHECK constraint do?
+              </p>
+            <ul>
+                <li><input type="radio" name="q4" value="false"> Ensures referential integrity between tables</li>
+                <li><input type="radio" name="q4" value="false"> Checks if a value exists in another table</li>
+                <li><input type="radio" name="q4" value="true"> Limits the range of values that can be inserted into a column </li>
+                <li><input type="radio" name="q4" value="false">Checks for NULL values in a column </li>
+            </ul>
+            <button class="submit-btn">Submit</button>
+        </div>
+        <div class="result" style="display: none;">
+            <!-- Result content will be displayed here -->
+        </div>
+    </div>
+    
+    
+    <div class="result" id="result"></div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const questions = document.querySelectorAll(".question");
+    const nextBtns = document.querySelectorAll(".next-btn");
+    const submitBtn = document.querySelector(".submit-btn");
+    const resultSection = document.querySelector(".result");
+
+    let currentQuestionIndex = 0;
+
+    // Function to show next question or result
+    function showNext() {
+        questions[currentQuestionIndex].style.display = "none";
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < questions.length - 1) {
+            questions[currentQuestionIndex].style.display = "block";
+        } else if (currentQuestionIndex === questions.length - 1) {
+            submitBtn.style.display = "block";
+        } else {
+            showResult();
+        }
+    }
+
+    // Function to calculate and display result
+    function showResult() {
+        let correctAnswers = 0;
+        questions.forEach((question, index) => {
+            const selectedOption = question.querySelector("input[type='radio']:checked");
+            if (selectedOption && selectedOption.value === "true") {
+                correctAnswers++;
+            }
+        });
+
+        const resultText = document.createElement("p");
+        resultText.textContent = `You scored ${correctAnswers} out of ${questions.length }.`;
+        resultSection.appendChild(resultText);
+        resultSection.style.display = "block";
+    }
+
+    // Event listeners for next button clicks
+    nextBtns.forEach(nextBtn => {
+        nextBtn.addEventListener("click", showNext);
+    });
+
+    // Event listener for submit button click
+    submitBtn.addEventListener("click", showResult);
+
+    // Show the first question initially
+    questions[currentQuestionIndex].style.display = "block";
+});
+</script>

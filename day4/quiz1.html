@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: 50px auto;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .btn-container {
+      margin-top: 20px;
+    }
+  </style>
+  <title>Simple Quiz Platform</title>
+</head>
+<body>
+
+<div class="container quiz-container">
+  <div id="question1" class="question">
+    <h3>Question 1: Who is the father of C language?</h3>
+    <div class="options">
+      <label><input type="radio" name="q1" value="shalini"> Paris</label>
+      <label><input type="radio" name="q1" value="denis ritche"> Berlin</label>
+      <label><input type="radio" name="q1" value="yuva"> Rome</label>
+    </div>
+  </div>
+
+  <!-- Repeat the above block for each question (change IDs and content accordingly) -->
+
+  <!-- Question 2 -->
+  <div id="question2" class="question">
+    <h3>Question 2: What is the capital of Germany?</h3>
+    <div class="options">
+      <label><input type="radio" name="q2" value="Paris"> Paris</label>
+      <label><input type="radio" name="q2" value="Berlin"> Berlin</label>
+      <label><input type="radio" name="q2" value="Rome"> Rome</label>
+    </div>
+  </div>
+
+  <!-- Continue with questions 3 to 10 -->
+
+  <div class="btn-container">
+    <button id="prevBtn" class="btn btn-secondary">Previous</button>
+    <button id="nextBtn" class="btn btn-primary">Next</button>
+    <button id="submitBtn" class="btn btn-success" style="display: none;">Submit</button>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  var currentQuestion = 1;
+
+  // Show and hide questions based on currentQuestion
+  function showQuestion(questionNumber) {
+    $(".question").hide();
+    $("#question" + questionNumber).show();
+  }
+
+  // Event listener for Next button
+  $("#nextBtn").click(function() {
+    if (currentQuestion < 10) {
+      currentQuestion++;
+      showQuestion(currentQuestion);
+    }
+    // Show Submit button on the last question
+    if (currentQuestion === 10) {
+      $("#nextBtn").hide();
+      $("#submitBtn").show();
+    }
+  });
+
+  // Event listener for Previous button
+  $("#prevBtn").click(function() {
+    if (currentQuestion > 1) {
+      currentQuestion--;
+      showQuestion(currentQuestion);
+    }
+    // Hide Submit button if not on the last question
+    if (currentQuestion < 10) {
+      $("#submitBtn").hide();
+      $("#nextBtn").show();
+    }
+  });
+
+  // Event listener for Submit button
+  $("#submitBtn").click(function() {
+    // You can implement logic to collect and submit answers here
+    alert("Answers submitted!");
+  });
+
+  // Show the first question initially
+  showQuestion(currentQuestion);
+</script>
+
+</body>
+</html>
